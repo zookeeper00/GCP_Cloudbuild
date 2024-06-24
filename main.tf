@@ -2,11 +2,11 @@
 
   provider "google" {
 
+  credentials = file(var.gcp_credentials_file)
+
   project     = "testing-project-419916"
 
   region      = "asia-east1"  # Choose your desired region
-
-  credentials = file("/home/ushaikh8446/testing-project-419916-a7392315fcde.json")
 
 }
 
