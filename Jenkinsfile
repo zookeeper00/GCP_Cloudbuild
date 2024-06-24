@@ -45,9 +45,9 @@ pipeline {
     }
  
     post {
-        always {
-            cleanWs()
-        }
+#        always {
+#           cleanWs()
+#        }
         success {
             echo 'Terraform infrastructure has been successfully applied.'
         }
