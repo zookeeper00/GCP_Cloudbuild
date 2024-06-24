@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/zookeeper00/Terraform_GCP.git', branch: 'main', credentialsId: '2026'
+                git url: 'https://github.com/zookeeper00/GCP_Cloudbuild.git', branch: 'main', credentialsId: '2026'
             }
         }
  
@@ -18,7 +18,7 @@ pipeline {
                 script {
                     // Write the GCP credentials to a file that Terraform can use
                     writeFile file: 'gcp_credentials.json', text: GCP_CREDENTIALS
-                    sh 'terraform init -reconfigure'
+                    sh 'terraform init'
                 }
             }
         }
@@ -33,7 +33,7 @@ pipeline {
             }
         }
  
-        stage('Terraform Destroy') {
+        stage('Terraform apply') {
             steps {
                 script {
                     withEnv(["GOOGLE_CLOUD_KEYFILE_JSON=gcp_credentials.json"]) {
