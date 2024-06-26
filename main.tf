@@ -11,7 +11,7 @@
 }
 
 resource "google_compute_instance" "vm_instance" {
- count        = 5
+ count        = 7
  name         = "your-instance-name-${count.index}"
  machine_type = "e2-standard-2"
  zone         = "asia-east1-a"
